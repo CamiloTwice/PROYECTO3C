@@ -32,7 +32,7 @@
 <body>
     <h2>Lista de Pedidos</h2>
     
-    <a href="{% url 'crear_pedido' %}" class="nuevo-pedido">Nuevo Pedido</a>
+    <a href="{% url 'producto_create' %}" class="nuevo-pedido">Nuevo Pedido</a>
 
     {% for pedido in pedidos %}
         <div class="pedido estado-{{ pedido.estado }}">
