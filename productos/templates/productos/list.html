@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Pedidos - Cafetería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .pedido {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .estado-pendiente { background-color: #fff3cd; }
+        .estado-preparando { background-color: #cce5ff; }
+        .estado-completado { background-color: #d4edda; }
+        .nuevo-pedido {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Pedidos</h2>
+    
+    <a href="{% url 'crear_pedido' %}" class="nuevo-pedido">Nuevo Pedido</a>
+
+    {% for pedido in pedidos %}
+        <div class="pedido estado-{{ pedido.estado }}">
+            <h3>{{ pedido.producto }}</h3>
+            <p>Precio: ${{ pedido.precio }}</p>
+            <p>Cantidad: {{ pedido.cantidad }}</p>
+            <p>Total: ${{ pedido.total }}</p>
+            <p>Estado: {{ pedido.get_estado_display }}</p>
+            <small>Fecha: {{ pedido.fecha_pedido }}</small>
+        </div>
+    {% empty %}
+        <p>No hay pedidos registrados.</p>
+    {% endfor %}
+</body>
+</html>

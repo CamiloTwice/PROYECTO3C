@@ -1,0 +1,10 @@
+docker-compose run web django-admin startproject backend .
+docker-compose run web python manage.py migrate
+
+docker-compose run web python manage.py createsuperuser
+admin
+1234
+
+docker-compose run web python manage.py startapp productos
+
+docker-compose run web python manage.py makemigrations productos
