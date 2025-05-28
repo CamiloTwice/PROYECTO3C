@@ -18,19 +18,3 @@ def producto_create(request):
     else:
         form = ProductoForm()
     return render(request, 'productos/create.html', {'form': form})
-
-def hilos_list(request):
-    hilos = Hilos.objects.all()
-    return render(request, 'productos/hilos.html')
-
-def hilos_create(request):
-    # Aquí puedes agregar la lógica para manejar las tareas de Celery
-    return render(request, 'productos/hilos.html')
-
-def celer_list(request):
-    # Aquí puedes agregar la lógica para manejar las tareas de Celery
-    return render(request, 'productos/celery.html')
-
-def celery_create(request):
-    # Aquí puedes agregar la lógica para manejar las tareas de Celery
-    return render(request, 'productos/celery.html')
