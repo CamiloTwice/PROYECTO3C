@@ -9,6 +9,7 @@ services:
       - db
     environment:
       - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=backend.settings
       - DJANGO_SECRET_KEY=your-secret-key-here
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/backend_db
 

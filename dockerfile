@@ -1,7 +1,7 @@
 FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE backend.settings  # Changed from PROYECTO3C.settings to backend.settings
+ENV DJANGO_SETTINGS_MODULE backend.settings
 
 WORKDIR /app
 
