@@ -7,6 +7,17 @@ def producto_list(request):
     productos = Producto.objects.all()
     return render(request, 'productos/list.html', {'productos': productos})
 
+def producto_create(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Producto creado exitosamente!')
+            return redirect('producto_list')
+    else:
+        form = ProductoForm()
+    return render(request, 'productos/create.html', {'form': form})
+
 def pedido_list(request):
     pedidos = Pedido.objects.all().order_by('-fecha_pedido')
     return render(request, 'productos/list.html', {'pedidos': pedidos})
