@@ -10,3 +10,18 @@ docker-compose run web python manage.py startapp productos
 docker-compose run web python manage.py makemigrations productos
 
 docker-compose exec web python manage.py shell
+
+docker run --rm \
+  -v postgres_data:/volume \
+  -v $(pwd):/backup \
+  alpine \
+  tar czf /backup/backup.tar.gz -C /volume .
+
+docker run --rm  -v postgres_data:/volume -v $(pwd):/backup alpine tar czf /backup/backup.tar.gz -C /volume .
+
+
+docker run --rm `
+  -v postgres_data:/volume `
+  -v "$((Get-Location).Path):/backup" `
+  alpine `
+  tar czf /backup/backup.tar.gz -C /volume .

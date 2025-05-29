@@ -15,7 +15,7 @@ services:
   db:
     image: postgres:13
     volumes:
-      - /Users/mab/Documents/backend-ejemplo-ok/backup:/var/lib/postgresql/data
+      - C/Programas/PROYECTO3C/backup:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=backend_db
       - POSTGRES_USER=postgres
