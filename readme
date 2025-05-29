@@ -25,3 +25,8 @@ docker run --rm `
   -v "$((Get-Location).Path):/backup" `
   alpine `
   tar czf /backup/backup.tar.gz -C /volume .
+
+docker-compose down -v
+docker system prune -f
+docker-compose up --build
+docker compose -f docker-compose.backup.yml run --rm db
